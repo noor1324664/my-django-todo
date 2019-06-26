@@ -1,0 +1,9 @@
+{% extends 'todo_app/layout.html' %}
+
+{% block content %}
+<form action="" method='POST'>{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Log In">
+</form>
+<a href="{% url 'splash' %}">Return to homepage</a>
+{% endblock %}

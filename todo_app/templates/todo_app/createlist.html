@@ -1,0 +1,17 @@
+{% extends 'todo_app/layout.html' %}
+
+{% block content %}
+<div class="pageTitle-container">
+        <h2>Create List</h2>
+</div>
+<form class="taskForm" action ="" method="POST">{% csrf_token %}
+    <label class="taskForm-element taskForm-text" for="name">Name</label>
+    <br>
+    <input class="taskForm-element" type="text" name="name" autofocus>
+    <br>
+    <div class="taskForm-element taskForm-buttonContainer">
+        <input class="todoButton" type="submit" value="Submit">
+        <a class="todoButton" href="/todo/lists">Back</a>
+    </div>
+</form>
+{% endblock %}

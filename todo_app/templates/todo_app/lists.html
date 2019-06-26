@@ -1,0 +1,27 @@
+{% extends 'todo_app/layout.html' %}
+
+{% block content %}
+<div class="pageTitle-container">
+        <div class="user-container">
+            <div class="user-text">User: {{user}}</div>
+            <a class="todoButton logoutButton" href="/accounts/logout">Log Out</a>
+        </div>
+        <h2>Lists</h2>
+</div>
+<div class="createTask-container">
+    <a class="todoButton createButton" href="/todo/createlist">Create New</a>
+</div>
+<div>
+    <ul>
+        {% for num_list in num_lists %}
+            <li class="task-li">
+                <div class="listName-container">{{num_list.list.name}}: {{ num_list.num_tasks }} Task{% if num_list.num_tasks != 1 %}s{% endif %}</div>
+                <div class="button-container">
+                    <a class="todoButton detailButton" href="/todo/tasks/{{num_list.list.id}}">Details</a>
+                    <a class="todoButton deleteButton" href="/todo/deletelist/{{num_list.list.id}}">Delete</a>
+                </div>
+            </li>
+        {% endfor %}
+        </ul>
+</div>
+{% endblock %}

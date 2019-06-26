@@ -1,0 +1,15 @@
+{% extends 'todo_app/layout.html' %}
+
+{% block content %}
+<div class="pageTitle-container">
+        <h2>Delete List</h2>
+</div>
+<div class="pageContent-container-centered">
+    <h3>Are you sure you want to delete this?</h3>
+    <div class="taskDescription">
+        This list contains {{ num_tasks }} item{% if num_tasks != 1 %}s{% endif %}.
+    </div>
+    <a class="todoButton createButton" href="/todo/deletelistconfirm/{{list}}">Yes</a>
+    <a class="todoButton deleteButton" href="/todo">No</a>
+</div>
+{% endblock %}

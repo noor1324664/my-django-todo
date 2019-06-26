@@ -1,0 +1,43 @@
+{% extends 'todo_app/layout.html' %}
+
+{% block content %}
+<div class="pageTitle-container">
+        <div class="user-container">
+            <div class="user-text">User: {{user}}</div>
+            <a class="todoButton backButton" href="/todo">Back</a>
+            <a class="todoButton logoutButton" href="/accounts/logout">Log Out</a>
+        </div>
+        <h2>Tasks</h2>
+</div>
+<div class="createTask-container">
+    <a class="todoButton createButton" href="/todo/create/{{list}}">Create New</a>
+</div>
+<div>
+    <ul>
+        {% for task in tasks %}
+            <li class="task-li">
+                {% if task.is_done == 1 %}
+                    <label class="checkBoxContainer">
+                        <a class="checkBoxButton" value="{{task.is_done}}" href="/todo/check/{{list}}/{{task.id}}"></a>
+                        <span class="checkBoxActive"></span>
+                        <span class="check"></span>
+                    </label>
+                    <div class="taskName-container taskName-container-checked">{{task.name}}</div>
+                {% else %}
+                    <label class="checkBoxContainer">
+                        <a class="checkBoxButton" value="{{task.is_done}}" href="/todo/check/{{list}}/{{task.id}}"></a>
+                        <span class="checkBox"></span>
+                        <span class="check" hidden=""></span>
+                    </label>
+                    <div class="taskName-container">{{task.name}}</div>
+                {% endif %}
+                <div class="button-container">
+                    <a class="todoButton detailButton" href="/todo/details/{{list}}/{{task.id}}">Details</a>
+                    <a class="todoButton editButton" href="/todo/edit/{{list}}/{{task.id}}">Edit</a>
+                    <a class="todoButton deleteButton" href="/todo/delete/{{list}}/{{task.id}}">Delete</a>
+                </div>
+            </li>
+        {% endfor %}
+        </ul>
+</div>
+{% endblock %}

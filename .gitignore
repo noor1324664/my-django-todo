@@ -1,0 +1,8 @@
+# DJango
+*.log
+*.pyc
+__pycache__/
+
+# VS Code
+*.vscode
+
